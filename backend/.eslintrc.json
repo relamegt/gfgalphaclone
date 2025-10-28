@@ -1,0 +1,27 @@
+{
+  "extends": ["../.eslintrc.json"],
+  "settings": {
+    "import/resolver": {
+      "typescript": {
+        "project": "./backend/tsconfig.json"
+      }
+    }
+  },
+  "rules": {
+    "react/react-in-jsx-scope": "off",
+    "react/prop-types": "off",
+    "import/default": "off",
+    "import/no-named-as-default": "warn",
+    "import/no-named-as-default-member": "warn"
+  },
+  "overrides": [
+    {
+      "files": ["**/*.test.ts", "**/*.spec.ts"],
+      "rules": {
+        "@typescript-eslint/no-explicit-any": "off",
+        "import/namespace": "off",
+        "import/no-unresolved": "off"
+      }
+    }
+  ]
+}
