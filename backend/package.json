@@ -1,0 +1,14 @@
+{
+  "name": "@monorepo/backend",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Express backend API server",
+  "scripts": {
+    "dev": "echo 'Backend dev server not yet configured'",
+    "build": "echo 'Backend build not yet configured'",
+    "test": "echo 'Backend tests not yet configured'",
+    "typecheck": "echo 'Backend typecheck not yet configured'"
+  },
+  "dependencies": {},
+  "devDependencies": {}
+}
