@@ -1,0 +1,14 @@
+{
+  "name": "@monorepo/frontend",
+  "version": "0.1.0",
+  "private": true,
+  "description": "React frontend application",
+  "scripts": {
+    "dev": "echo 'Frontend dev server not yet configured'",
+    "build": "echo 'Frontend build not yet configured'",
+    "test": "echo 'Frontend tests not yet configured'",
+    "typecheck": "echo 'Frontend typecheck not yet configured'"
+  },
+  "dependencies": {},
+  "devDependencies": {}
+}
