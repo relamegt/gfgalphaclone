@@ -1,0 +1,104 @@
+openapi: 3.0.0
+info:
+  title: Backend API
+  description: Express backend API with Astra DB
+  version: 0.1.0
+  contact:
+    name: API Support
+servers:
+  - url: http://localhost:3001/api
+    description: Development server
+  - url: /api
+    description: Current server
+
+tags:
+  - name: System
+    description: System health and status endpoints
+
+paths:
+  /health:
+    get:
+      tags:
+        - System
+      summary: Health check endpoint
+      description: Returns the health status of the API and its dependencies
+      responses:
+        '200':
+          description: Service is healthy
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    example: healthy
+                  timestamp:
+                    type: string
+                    format: date-time
+                  uptime:
+                    type: number
+                    description: Server uptime in seconds
+                  database:
+                    type: object
+                    properties:
+                      connected:
+                        type: boolean
+                      keyspace:
+                        type: string
+        '503':
+          description: Service is unhealthy
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    example: unhealthy
+                  timestamp:
+                    type: string
+                    format: date-time
+                  error:
+                    type: string
+
+  /status:
+    get:
+      tags:
+        - System
+      summary: Status endpoint
+      description: Returns basic API status information
+      responses:
+        '200':
+          description: API status
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    example: ok
+                  timestamp:
+                    type: string
+                    format: date-time
+                  version:
+                    type: string
+                    example: 0.1.0
+                  environment:
+                    type: string
+                    example: development
+
+components:
+  schemas:
+    Error:
+      type: object
+      properties:
+        status:
+          type: string
+          example: error
+        message:
+          type: string
+      required:
+        - status
+        - message
